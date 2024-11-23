@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <math.h>
 
 int main() {
     int num, bits;
@@ -10,7 +9,7 @@ int main() {
     scanf("%u", &num);
 
     for (int i = 0; i < sizeof(num); i++){
-        if (num < pow(2, i * 8)){
+        if (num < (2 << (i * 8-1))){
             bits = i * 8;
             mask = 1 << (bits - 1);
             break;
