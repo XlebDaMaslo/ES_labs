@@ -8,8 +8,6 @@ int main() {
     printf("Введите отрицательное число: ");
     scanf("%d", &num);
 
-    printf("%ld\n", (sizeof(num) * 8 - 1));
-
     mask = 1 << (sizeof(num) * 8 - 2);
 
     for (int i = 0; i < sizeof(num) * 8 - 1; i++) {
