@@ -1,5 +1,28 @@
 #include <stdio.h>
+#include <math.h>
 
 int main() {
-    printf("Test\n");
+    int num, bits;
+    unsigned int mask;
+    char c;
+    
+    printf("Введите положительное число: ");
+    scanf("%u", &num);
+
+    for (int i = 0; i < sizeof(num); i++){
+        if (num < pow(2, i * 8)){
+            bits = i * 8;
+            mask = 1 << (bits - 1);
+            break;
+        }
+    }
+
+    for (int i = 0; i < bits; i++) {
+        c = (num & mask) ? 1 : 0;
+        printf("%u", c);
+        mask >>= 1;
+    }
+    printf("\n");
+
+    return 0;
 }
